@@ -21,8 +21,8 @@ body{
 }
 
 .cabecalho-imagem {
-    width: 120px;   /* muda o tamanho aqui */
-    height: auto;   /* mantém proporção */
+    width: 120px;   
+    height: auto;   
     object-fit: cover;
 
 }
