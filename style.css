@@ -20,9 +20,11 @@ body{
     padding:20px;
 }
 
-.cabecalho-imagem{
-    width:220px;
-    border-radius:12px;
+.imagem-palmito_1.jpj {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+}
 }
 
 .cabecalho-texto h1{
