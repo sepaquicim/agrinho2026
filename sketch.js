@@ -2,91 +2,58 @@ let registros = [];
 let totalArvores = 0;
 
 function setup() {
-
-```
-let canvas = createCanvas(900, 450);
-
-canvas.parent("grafico");
-
-carregarDados();
-```
-
+    let canvas = createCanvas(900, 450);
+    canvas.parent("grafico");
+    carregarDados();
 }
 
 function draw() {
-
-```
-background(255);
-
-desenharGrafico();
-```
-
+    background(255);
+    desenharGrafico();
 }
 
 function registrarPlantio() {
 
-```
-const nome =
-    document.getElementById("nome").value.trim();
+    const nome = document.getElementById("nome").value.trim();
 
-const quantidade =
-    Number(
+    const quantidade = Number(
         document.getElementById("quantidade").value
     );
 
-if (
-    nome === "" ||
-    isNaN(quantidade) ||
-    quantidade <= 0
-) {
+    if (
+        nome === "" ||
+        isNaN(quantidade) ||
+        quantidade <= 0
+    ) {
+        alert("Digite um nome e uma quantidade maior que zero.");
+        return;
+    }
 
-    alert(
-        "Digite um nome e uma quantidade maior que zero."
-    );
+    registros.push({
+        nome: nome,
+        quantidade: quantidade,
+        mes: new Date().getMonth()
+    });
 
-    return;
-}
+    salvarDados();
+    atualizarTela();
 
-registros.push({
-
-    nome: nome,
-    quantidade: quantidade,
-    mes: new Date().getMonth()
-
-});
-
-salvarDados();
-
-atualizarTela();
-
-document.getElementById("nome").value = "";
-document.getElementById("quantidade").value = "";
-```
-
+    document.getElementById("nome").value = "";
+    document.getElementById("quantidade").value = "";
 }
 
 function atualizarTela() {
 
-```
-totalArvores = registros.reduce(
+    totalArvores = registros.reduce(
+        (total, item) => total + item.quantidade,
+        0
+    );
 
-    (total, item) =>
-        total + item.quantidade,
+    document.getElementById("total").textContent = totalArvores;
 
-    0
+    let historico = "";
 
-);
-
-document.getElementById("total")
-    .textContent = totalArvores;
-
-let historico = "";
-
-registros
-    .slice()
-    .reverse()
-    .forEach(item => {
-
+    registros.slice().reverse().forEach(item => {
         historico += `
         <div class="registro">
             🌳 <strong>${item.nome}</strong>
@@ -97,110 +64,79 @@ registros
         `;
     });
 
-document.getElementById("historico")
-    .innerHTML = historico;
-```
-
+    document.getElementById("historico").innerHTML = historico;
 }
 
 function desenharGrafico() {
 
-```
-const meses = new Array(12).fill(0);
+    const meses = new Array(12).fill(0);
 
-registros.forEach(item => {
+    registros.forEach(item => {
+        meses[item.mes] += item.quantidade;
+    });
 
-    meses[item.mes] += item.quantidade;
+    const nomesMeses = [
+        "Jan","Fev","Mar","Abr",
+        "Mai","Jun","Jul","Ago",
+        "Set","Out","Nov","Dez"
+    ];
 
-});
+    stroke(220);
 
-const nomesMeses = [
-    "Jan","Fev","Mar","Abr",
-    "Mai","Jun","Jul","Ago",
-    "Set","Out","Nov","Dez"
-];
+    for (let y = 50; y < height - 50; y += 40) {
+        line(40, y, width - 20, y);
+    }
 
-stroke(220);
-
-for(let y = 50; y < height - 50; y += 40){
-
-    line(40, y, width - 20, y);
-
-}
-
-noStroke();
-
-fill(0);
-
-textSize(22);
-
-textAlign(CENTER);
-
-text(
-    "Árvores Plantadas por Mês",
-    width / 2,
-    30
-);
-
-for(let i = 0; i < 12; i++){
-
-    let altura = meses[i] * 5;
-
-    fill(46,125,50);
-
-    rect(
-        50 + i * 65,
-        height - altura - 60,
-        45,
-        altura
-    );
-
+    noStroke();
     fill(0);
+    textSize(22);
+    textAlign(CENTER);
 
-    textSize(12);
+    text("Árvores Plantadas por Mês", width / 2, 30);
 
-    text(
-        nomesMeses[i],
-        72 + i * 65,
-        height - 20
+    for (let i = 0; i < 12; i++) {
+
+        let altura = meses[i] * 5;
+
+        fill(46, 125, 50);
+
+        rect(
+            50 + i * 65,
+            height - altura - 60,
+            45,
+            altura
+        );
+
+        fill(0);
+        textSize(12);
+
+        text(
+            nomesMeses[i],
+            72 + i * 65,
+            height - 20
+        );
+
+        text(
+            meses[i],
+            72 + i * 65,
+            height - altura - 70
+        );
+    }
+}
+
+function salvarDados() {
+    localStorage.setItem(
+        "plantios",
+        JSON.stringify(registros)
     );
-
-    text(
-        meses[i],
-        72 + i * 65,
-        height - altura - 70
-    );
-
-}
-```
-
 }
 
-function salvarDados(){
+function carregarDados() {
+    const dados = localStorage.getItem("plantios");
 
-```
-localStorage.setItem(
-    "plantios",
-    JSON.stringify(registros)
-);
-```
+    if (dados) {
+        registros = JSON.parse(dados);
+    }
 
-}
-
-function carregarDados(){
-
-```
-const dados =
-    localStorage.getItem("plantios");
-
-if(dados){
-
-    registros =
-        JSON.parse(dados);
-
-}
-
-atualizarTela();
-```
-
+    atualizarTela();
 }
