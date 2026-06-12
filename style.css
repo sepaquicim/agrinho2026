@@ -22,7 +22,7 @@ body{
 
 .cabecalho-imagem {
     width: 200px;   
-    height: auto;   
+    height: 400px;   
     object-fit: cover;
 
 }
