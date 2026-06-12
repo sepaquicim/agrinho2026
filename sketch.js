@@ -27,12 +27,10 @@ function registrarPlantio() {
             document.getElementById("quantidade").value
         );
 
-    if (nome === "" || quantidade >= 0) {
-
-        alert("Preencha os campos corretamente.");
-
-        return;
-    }
+   if (nome.trim() === "" || quantidade <= 0 || isNaN(quantidade)) {
+    alert("Digite um nome e uma quantidade maior que zero.");
+    return;
+}
 
     registros.push({
 
