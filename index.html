@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Biblioteca p5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+</head>
+
+<body>
+
+    <header class="cabecalho">
+
+        <img class="cabecalho-imagem"
+            src="https://thumbs.dreamstime.com/b/novo-amp-velho-6636497.jpg?w=768"
+            alt="Meio Ambiente">
+
+        <div class="cabecalho-texto">
+            <h1>"Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente"</h1>
+            <h2>Agro Forte, Futuro Sustentável</h2>
+        </div>
+
+    </header>
+
+    <section class="texto-principal">
+
+        <h2>O Poder das Árvores: Pequenas Ações, Grandes Transformações</h2>
+
+        <p>
+            Projeto Agrinho 2026.
+        </p>
+
+        <p>
+            O crescimento da agricultura e da urbanização trouxe importantes avanços para a sociedade,
+            mas também gerou impactos significativos sobre o meio ambiente.
+        </p>
+
+        <p>
+            Diante desse cenário, o plantio de árvores surge como uma das ações mais simples e eficazes
+            para promover a recuperação ambiental.
+        </p>
+
+        <p>
+            As árvores capturam dióxido de carbono, ajudam a regular o clima,
+            protegem nascentes e oferecem abrigo para inúmeras espécies.
+        </p>
+
+    </section>
+
+    <section class="lista">
+
+        <h2>Faça Parte da Mudança</h2>
+
+        <ul>
+            <li>Cada árvore plantada representa um investimento no futuro.</li>
+            <li>Contribui para a conservação da natureza.</li>
+            <li>Protege a água e melhora a qualidade de vida.</li>
+        </ul>
+
+    </section>
+
+    <section class="container">
+
+        <h2>🌳 Registro de Árvores Plantadas</h2>
+
+        <div class="formulario">
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Nome do participante">
+
+            <input
+                type="number"
+                id="quantidade"
+                placeholder="Quantidade de árvores">
+
+            <button onclick="registrarPlantio()">
+                Registrar Plantio
+            </button>
+
+        </div>
+
+        <div class="total">
+            Total de árvores plantadas:
+            <span id="total">0</span>
+        </div>
+
+        <div id="historico"></div>
+
+        <h2> Árvores Plantadas por Mês</h2>
+
+        <div id="grafico"></div>
+
+    </section>
+
+    <script src="sketch.js"></script>
+
+</body>
+
+</html>
