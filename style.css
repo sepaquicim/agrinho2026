@@ -23,8 +23,8 @@ body{
 
 .cabecalho-imagem{
     width:50%;
-    max-width:800px;
-    height:auto;
+    max-width:450px;
+    height:140px;
     object-fit:cover;
     border-radius:12px;
 }
