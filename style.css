@@ -6,17 +6,17 @@
 
 body{
     font-family:Arial, sans-serif;
-    background:#388e3c;
-    color:#333;
+    background:#7FB783;
+    color:#041804;
 }
 
 .cabecalho{
-    background:#2e7d32;
+    background:#28512A;
     color:white;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:30px;
+    gap:20px;
     padding:20px;
     flex-wrap:wrap;
 }
@@ -47,7 +47,7 @@ body{
 .container{
     max-width:1100px;
     margin:30px auto;
-    background:#388e3c;
+    background:#B5E3B7;
     padding:25px;
     border-radius:15px;
     box-shadow:0 3px 10px rgba(0,0,0,.1);
