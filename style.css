@@ -18,17 +18,24 @@ body{
     justify-content:center;
     gap:30px;
     padding:20px;
+    flex-wrap:wrap;
 }
 
-.cabecalho-imagem {
-    width: 800px;   
-    height: 400px;   
-    object-fit: cover;
+.cabecalho-imagem{
+    width:100%;
+    max-width:800px;
+    height:auto;
+    object-fit:cover;
+    border-radius:12px;
+}
 
+.cabecalho-texto{
+    text-align:center;
 }
 
 .cabecalho-texto h1{
     font-size:42px;
+    line-height:1.2;
 }
 
 .cabecalho-texto h2{
@@ -83,10 +90,12 @@ button{
     color:white;
     cursor:pointer;
     font-size:16px;
+    transition:0.3s;
 }
 
 button:hover{
     background:#1b5e20;
+    transform:scale(1.05);
 }
 
 .total{
@@ -105,8 +114,11 @@ button:hover{
 }
 
 .registro{
-    padding:10px;
-    border-bottom:1px solid #ddd;
+    padding:12px;
+    margin:8px 0;
+    border-radius:8px;
+    background:white;
+    border-left:4px solid #2e7d32;
 }
 
 canvas{
@@ -120,24 +132,79 @@ canvas{
 h2{
     text-align:center;
     color:#2e7d32;
+    margin-bottom:15px;
 }
 
-.referencias {
-    background: #f3fff3;
-    padding: 30px;
-    margin-top: 40px;
-    border-radius: 12px;
+h3,
+h4{
+    color:#1b5e20;
+    margin-top:15px;
 }
 
-.referencias h2 {
-    text-align: center;
-    color: #2e7d32;
+.referencias{
+    background:#f3fff3;
+    padding:30px;
+    margin-top:40px;
+    border-radius:12px;
 }
 
-.card {
-    background: white;
-    padding: 15px;
-    margin: 15px 0;
-    border-left: 5px solid #2e7d32;
-    border-radius: 8px;
+.card{
+    background:white;
+    padding:20px;
+    margin:15px 0;
+    border-left:5px solid #2e7d32;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+a{
+    color:#1b5e20;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+.rodape{
+    background:#1b5e20;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+@media (max-width:768px){
+
+    .cabecalho{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .cabecalho-texto h1{
+        font-size:28px;
+    }
+
+    .cabecalho-texto h2{
+        font-size:18px;
+    }
+
+    .texto-principal,
+    .lista,
+    .container,
+    .referencias{
+        margin:15px;
+        padding:20px;
+    }
+
+    input,
+    button{
+        width:100%;
+    }
+
+    canvas{
+        width:100% !important;
+        height:auto !important;
+    }
 }
