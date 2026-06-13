@@ -94,14 +94,14 @@ button{
 }
 
 button:hover{
-    background:#1b5e20;
+    background:#e8f5e9
     transform:scale(1.05);
 }
 
 .total{
     text-align:center;
     font-size:28px;
-    color:#2e7d32;
+    color:#66bb6a;
     margin:20px 0;
     font-weight:bold;
 }
