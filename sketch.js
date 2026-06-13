@@ -3,9 +3,19 @@ let totalArvores = 0;
 
 function setup() {
 
-    let canvas = createCanvas(
-        document.getElementById("grafico").offsetWidth,
-        450
+    let largura = document.getElementById("grafico").clientWidth;
+
+    if (!largura || largura === 0) {
+        largura = 900; // fallback
+    }
+
+    let canvas = createCanvas(largura, 450);
+    canvas.parent("grafico");
+
+    carregarDados();
+
+    noLoop();
+}
     );
 
     canvas.parent("grafico");
