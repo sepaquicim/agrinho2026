@@ -2,9 +2,17 @@ let registros = [];
 let totalArvores = 0;
 
 function setup() {
-    let canvas = createCanvas(900, 450);
+
+    let canvas = createCanvas(
+        document.getElementById("grafico").offsetWidth,
+        450
+    );
+
     canvas.parent("grafico");
+
     carregarDados();
+
+    noLoop();
 }
 
 function draw() {
@@ -29,14 +37,20 @@ function registrarPlantio() {
         return;
     }
 
+    if (quantidade > 1000) {
+        alert("Máximo permitido: 1000 árvores.");
+        return;
+    }
+
     registros.push({
-        nome: nome,
-        quantidade: quantidade,
+        nome,
+        quantidade,
         mes: new Date().getMonth()
     });
 
     salvarDados();
     atualizarTela();
+    redraw();
 
     document.getElementById("nome").value = "";
     document.getElementById("quantidade").value = "";
@@ -49,11 +63,13 @@ function atualizarTela() {
         0
     );
 
-    document.getElementById("total").textContent = totalArvores;
+    document.getElementById("total").textContent =
+        totalArvores;
 
     let historico = "";
 
-    registros.slice().reverse().forEach(item => {
+    [...registros].reverse().forEach(item => {
+
         historico += `
         <div class="registro">
             🌳 <strong>${item.nome}</strong>
@@ -64,7 +80,8 @@ function atualizarTela() {
         `;
     });
 
-    document.getElementById("historico").innerHTML = historico;
+    document.getElementById("historico").innerHTML =
+        historico;
 }
 
 function desenharGrafico() {
@@ -81,9 +98,12 @@ function desenharGrafico() {
         "Set","Out","Nov","Dez"
     ];
 
+    const maiorValor =
+        Math.max(...meses, 1);
+
     stroke(220);
 
-    for (let y = 50; y < height - 50; y += 40) {
+    for(let y = 50; y < height - 50; y += 40){
         line(40, y, width - 20, y);
     }
 
@@ -92,13 +112,23 @@ function desenharGrafico() {
     textSize(22);
     textAlign(CENTER);
 
-    text("Árvores Plantadas por Mês", width / 2, 30);
+    text(
+        "Árvores Plantadas por Mês",
+        width / 2,
+        30
+    );
 
-    for (let i = 0; i < 12; i++) {
+    for(let i = 0; i < 12; i++){
 
-        let altura = meses[i] * 5;
+        const altura = map(
+            meses[i],
+            0,
+            maiorValor,
+            0,
+            height - 150
+        );
 
-        fill(46, 125, 50);
+        fill(46,125,50);
 
         rect(
             50 + i * 65,
@@ -125,6 +155,7 @@ function desenharGrafico() {
 }
 
 function salvarDados() {
+
     localStorage.setItem(
         "plantios",
         JSON.stringify(registros)
@@ -132,11 +163,30 @@ function salvarDados() {
 }
 
 function carregarDados() {
-    const dados = localStorage.getItem("plantios");
 
-    if (dados) {
-        registros = JSON.parse(dados);
+    const dados =
+        localStorage.getItem("plantios");
+
+    if(dados){
+
+        try{
+            registros =
+                JSON.parse(dados) || [];
+        }catch{
+            registros = [];
+        }
     }
 
     atualizarTela();
+}
+
+function windowResized(){
+
+    resizeCanvas(
+        document.getElementById("grafico")
+            .offsetWidth,
+        450
+    );
+
+    redraw();
 }
