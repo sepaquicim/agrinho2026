@@ -14,7 +14,10 @@ function setup() {
 
     carregarDados();
 
-    noLoop();
+function draw() {
+    clear();
+    desenharGrafico();
+}
 }
     );
 
