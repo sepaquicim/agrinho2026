@@ -1,7 +1,6 @@
 let registros = [];
 let totalArvores = 0;
 
-// ================= P5 =================
 function setup() {
     let canvas = createCanvas(900, 450);
     canvas.parent("grafico");
@@ -13,11 +12,13 @@ function draw() {
     desenharGrafico();
 }
 
-// ================= REGISTRAR =================
 function registrarPlantio() {
 
     const nome = document.getElementById("nome").value.trim();
-    const quantidade = Number(document.getElementById("quantidade").value);
+
+    const quantidade = Number(
+        document.getElementById("quantidade").value
+    );
 
     if (
         nome === "" ||
@@ -41,7 +42,6 @@ function registrarPlantio() {
     document.getElementById("quantidade").value = "";
 }
 
-// ================= TELA =================
 function atualizarTela() {
 
     totalArvores = registros.reduce(
@@ -57,7 +57,9 @@ function atualizarTela() {
         historico += `
         <div class="registro">
             🌳 <strong>${item.nome}</strong>
-            plantou <strong>${item.quantidade}</strong> árvore(s)
+            plantou
+            <strong>${item.quantidade}</strong>
+            árvore(s)
         </div>
         `;
     });
@@ -65,7 +67,6 @@ function atualizarTela() {
     document.getElementById("historico").innerHTML = historico;
 }
 
-// ================= GRÁFICO =================
 function desenharGrafico() {
 
     const meses = new Array(12).fill(0);
@@ -109,21 +110,33 @@ function desenharGrafico() {
         fill(0);
         textSize(12);
 
-        text(nomesMeses[i], 72 + i * 65, height - 20);
-        text(meses[i], 72 + i * 65, height - altura - 70);
+        text(
+            nomesMeses[i],
+            72 + i * 65,
+            height - 20
+        );
+
+        text(
+            meses[i],
+            72 + i * 65,
+            height - altura - 70
+        );
     }
 }
 
-// ================= FIREBASE SALVAR =================
 function salvarDados() {
-    // usa Firebase compatível (já carregado no HTML)
-    db.ref("plantios").set(registros);
+    localStorage.setItem(
+        "plantios",
+        JSON.stringify(registros)
+    );
 }
 
-// ================= FIREBASE CARREGAR =================
 function carregarDados() {
-    db.ref("plantios").once("value", (snapshot) => {
-        registros = snapshot.val() || [];
-        atualizarTela();
-    });
+    const dados = localStorage.getItem("plantios");
+
+    if (dados) {
+        registros = JSON.parse(dados);
+    }
+
+    atualizarTela();
 }
