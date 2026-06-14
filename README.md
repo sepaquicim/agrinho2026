@@ -1,10 +1,10 @@
-# Reflorestamento Sustentável
+# O Poder das Árvores: Pequenas Ações, Grandes Transformações
 
 Uma landing page desenvolvida para o Concurso Agrinho 2026, com foco na conscientização sobre a importância do reflorestamento, da preservação ambiental e do uso da tecnologia para promover um futuro mais sustentável.
 
 ## 📖 Sobre o Projeto
 
-O projeto **Terra do Amanhã** foi criado com o objetivo de informar e conscientizar a população sobre a necessidade de preservar os recursos naturais por meio do reflorestamento.
+O projeto **O Poder das Árvores: Pequenas Ações, Grandes Transformações** foi criado com o objetivo de informar e conscientizar a população sobre a necessidade de preservar os recursos naturais por meio do reflorestamento.
 
 A página apresenta conteúdos educativos, estatísticas ambientais, imagens ilustrativas e recursos interativos que tornam a navegação mais acessível e envolvente para todos os usuários.
 
