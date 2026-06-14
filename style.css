@@ -21,12 +21,16 @@ body{
     flex-wrap:wrap;
 }
 
-.cabecalho-imagem{
-    width:50%;
-    max-width:450px;
-    height:140px;
-    object-fit:cover;
-    border-radius:12px;
+.foto-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.credito-foto{
+    font-size:12px;
+    color:white;
+    margin-top:5px;
 }
 
 .cabecalho-texto{
