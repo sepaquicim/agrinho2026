@@ -22,7 +22,7 @@ A página apresenta conteúdos educativos, estatísticas ambientais, imagens ilu
 - CSS3
 - JavaScript
 - GitHub Pages
-
+- P5js
 ##  Funcionalidades
 
 ###  Informações sobre Reflorestamento
