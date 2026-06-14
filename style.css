@@ -160,10 +160,8 @@ h4{
     border-radius:10px;
     box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
-.card p {
-    text-align: justify;
-}
-a{
+
+{
     color:#1b5e20;
     font-weight:bold;
     text-decoration:none;
