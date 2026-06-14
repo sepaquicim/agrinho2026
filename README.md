@@ -1,4 +1,4 @@
-# 🌱 Terra do Amanhã | Reflorestamento Sustentável
+# Reflorestamento Sustentável
 
 Uma landing page desenvolvida para o Concurso Agrinho 2026, com foco na conscientização sobre a importância do reflorestamento, da preservação ambiental e do uso da tecnologia para promover um futuro mais sustentável.
 
@@ -8,7 +8,7 @@ O projeto **Terra do Amanhã** foi criado com o objetivo de informar e conscient
 
 A página apresenta conteúdos educativos, estatísticas ambientais, imagens ilustrativas e recursos interativos que tornam a navegação mais acessível e envolvente para todos os usuários.
 
-## 🎯 Objetivos
+##  Objetivos
 
 - Promover a conscientização ambiental.
 - Incentivar práticas de reflorestamento.
@@ -16,28 +16,28 @@ A página apresenta conteúdos educativos, estatísticas ambientais, imagens ilu
 - Demonstrar o uso da tecnologia na educação ambiental.
 - Oferecer uma experiência acessível e inclusiva.
 
-## 🚀 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - HTML5
 - CSS3
 - JavaScript
 - GitHub Pages
 
-## 🛠️ Funcionalidades
+##  Funcionalidades
 
-### 🌳 Informações sobre Reflorestamento
+###  Informações sobre Reflorestamento
 Apresentação de conteúdos educativos sobre recuperação de áreas degradadas e preservação da biodiversidade.
 
 ### 📊 Gráficos e Indicadores
 Exibição de dados ambientais para facilitar a compreensão dos impactos positivos do reflorestamento.
 
-### ♿ Recursos de Acessibilidade
+###  Recursos de Acessibilidade
 - Ajuste de tamanho da fonte.
 - Alto contraste.
 - Navegação simplificada.
 - Interface adaptada para diferentes usuários.
 
-### 📱 Design Responsivo
+###  Design Responsivo
 Compatível com computadores, tablets e smartphones.
 
 ## 📂 Estrutura do Projeto
